@@ -10,12 +10,6 @@
     name: influxd
     state: started
 
-- name: Restart influxd
-  service:
-    name: influxd
-    state: restarted
-
-
 - name: Wait for a connection on influxdb port
   wait_for:
     host: localhost
