@@ -1,4 +1,4 @@
-- name: Install 
+- name: Install some python dependencies
   pip:
     name:
       - requests
