@@ -18,7 +18,7 @@ influxdb_url: URL of source package for InfluxDB. Set in `vars`
 
 ### `defaults`
 
-|Variable  | Default| Description |
+| Variable  | Default | Description |
 | ---  | --- | --- |
 |influxdb_version| 1.7.9| | 
 |influxdb_index_version| tsi1| | 
@@ -74,9 +74,9 @@ influxdb_url: URL of source package for InfluxDB. Set in `vars`
 |influxdb_http_access_log_status_filters| [] | Filters which requests should be logged. Each filter is of the pattern NNN, NNX, or NXX where N is a number and X is a wildcard for any number. To filter all 5xx responses, use the string 5xx.  If multiple filters are used, then only one has to match. The default is to have no filters which will cause every request to be printed.|
 |influxdb_http_write_tracing| false | Determines whether detailed write logging is enabled.|
 |influxdb_http_pprof_enabled| true | Determines whether the pprof endpoint is enabled.  This endpoint is used for troubleshooting and monitoring.|
-|influxdb_http_pprof_auth_enabled| "{{ influxdb_http_pprof_enabled }}" | Enables authentication on pprof endpoints. Users will need admin permissions to access the pprof endpoints when this setting is enabled. This setting has no effect if either auth-enabled or pprof-enabled are set to false.|
+|influxdb_http_pprof_auth_enabled| influxdb_http_pprof_enabled | Enables authentication on pprof endpoints. Users will need admin permissions to access the pprof endpoints when this setting is enabled. This setting has no effect if either auth-enabled or pprof-enabled are set to false.|
 |influxdb_http_debug_pprof_enabled| false | Enables a pprof endpoint that binds to localhost:6060 immediately on startup.  This is only needed to debug startup issues.|
-|influxdb_http_ping_auth_enabled| "{{ influxdb_http_pprof_enabled }}" | Enables authentication on the /ping, /metrics, and deprecated /status endpoints. This setting has no effect if auth-enabled is set to false.|
+|influxdb_http_ping_auth_enabled| influxdb_http_pprof_enabled  | Enables authentication on the /ping, /metrics, and deprecated /status endpoints. This setting has no effect if auth-enabled is set to false.|
 |influxdb_http_https_enabled| false | Determines whether HTTPS is enabled.|
 |influxdb_http_https_certificate| /etc/ssl/influxdb.pem | The SSL certificate to use when HTTPS is enabled.|
 |influxdb_http_https_private_key| "" | Use a separate private key location.|
@@ -144,7 +144,7 @@ influxdb_url: URL of source package for InfluxDB. Set in `vars`
 |influxdb_continuous_queries_enabled| true | Determines whether the continuous query service is enabled.|
 |influxdb_continuous_queries_log_enabled| true | Controls whether queries are logged when executed by the CQ service.|
 |influxdb_continuous_queries_query_stats_enabled| false | Controls whether queries are logged to the self-monitoring data store.|
-||influxdb_continuous_queries_run_interval| 1s | interval for how often continuous queries will be checked if they need to run |
+|influxdb_continuous_queries_run_interval| 1s | interval for how often continuous queries will be checked if they need to run |
 |influxdb_tls_ciphers| | TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Determines the available set of cipher suites. See https://golang.org/pkg/crypto/tls/#pkg-constants for a list of available ciphers, which depends on the version of Go (use the query SHOW DIAGNOSTICS to see the version of Go used to build InfluxDB). If not specified, uses the default settings from Go's crypto/tls package.|
 |influxdb_tls_min_version| tls1.2 | Minimum version of the tls protocol that will be negotiated. If not specified, uses the default settings from Go's crypto/tls package.|
 |influxdb_tls_max_version| tls1.2 | Maximum version of the tls protocol that will be negotiated. If not specified, uses the default settings from Go's crypto/tls package.|
