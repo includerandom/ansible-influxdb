@@ -6,3 +6,4 @@
     ansible_user: ansible
   roles:
     - role: ops-influxdb
+      influxdb_admin_user_password: abc12345xyz!
