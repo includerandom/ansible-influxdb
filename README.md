@@ -162,7 +162,7 @@ passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: ops-influxdb, influxdb_admin_user_password: "{{ vault_admin_user_password }}" }
+         - { role: heytrav.influxdb, influxdb_admin_user_password: "{{ vault_admin_user_password }}" }
 
 License
 -------
