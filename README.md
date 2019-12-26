@@ -145,7 +145,7 @@ influxdb_url: URL of source package for InfluxDB. Set in `vars`
 |influxdb_continuous_queries_log_enabled| true | Controls whether queries are logged when executed by the CQ service.|
 |influxdb_continuous_queries_query_stats_enabled| false | Controls whether queries are logged to the self-monitoring data store.|
 |influxdb_continuous_queries_run_interval| 1s | interval for how often continuous queries will be checked if they need to run |
-|influxdb_tls_ciphers| | TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Determines the available set of cipher suites. See https://golang.org/pkg/crypto/tls/#pkg-constants for a list of available ciphers, which depends on the version of Go (use the query SHOW DIAGNOSTICS to see the version of Go used to build InfluxDB). If not specified, uses the default settings from Go's crypto/tls package.|
+|influxdb_tls_ciphers | TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Determines the available set of cipher suites. See https://golang.org/pkg/crypto/tls/#pkg-constants for a list of available ciphers, which depends on the version of Go (use the query SHOW DIAGNOSTICS to see the version of Go used to build InfluxDB). If not specified, uses the default settings from Go's crypto/tls package.|
 |influxdb_tls_min_version| tls1.2 | Minimum version of the tls protocol that will be negotiated. If not specified, uses the default settings from Go's crypto/tls package.|
 |influxdb_tls_max_version| tls1.2 | Maximum version of the tls protocol that will be negotiated. If not specified, uses the default settings from Go's crypto/tls package.|
 
